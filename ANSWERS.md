@@ -34,7 +34,7 @@ B, k=5	14815
 1d. Decision (at most 150 words)
 Chosen candidate: B, k=3
 
-(A, k=5) exceeds the $21,900 budget and is eliminated. The three remaining candidates — (A, k=3), (B, k=3), (B, k=5) — are statistically indistinguishable: all Wilson intervals overlap with the best-recall candidate (B, k=5). Because no candidate is shown to outperform the others, I choose the cheapest in the tied pool: (B, k=3) at $13,115/year, saving $5,969 over (A, k=3) and $1,700 over (B, k=5) with no measurable recall penalty.
+(A, k=5) exceeds the $21,900 budget and is eliminated. The three remaining candidates - (A, k=3), (B, k=3), (B, k=5) - are statistically indistinguishable: all Wilson intervals overlap with the best-recall candidate (B, k=5). Because no candidate is shown to outperform the others, I choose the cheapest in the tied pool: (B, k=3) at $13,115/year, saving $5,969 over (A, k=3) and $1,700 over (B, k=5) with no measurable recall penalty.
 
 Per-language recall@3 for (B, k=3): EN 80 %, RU 65 %, KK 60 %. Kazakh-speaking users are served worst: only 6 of every 10 questions retrieve the correct chunk.
 
@@ -55,11 +55,11 @@ Accuracy. Pipeline H achieves 90.0 % overall accuracy; Pipeline L achieves 77.8 
 
 Cost. Annual cost: H $12,266; L $10,800. The $1,466 saving from L does not justify a gap of more than 13 percentage points on the weakest group.
 
-Personal-data constraint (three questions from L5.1 applied to H). Where does the scan go? Each page is sent as an image to a data centre abroad, outside Kazakhstan. Who stores it and for how long? The vendor's retention policy is unknown; we have a pricing agreement, not a data-processing agreement — this must be verified. What data are at risk? 9 % of pages (≈180,675 pages/year) carry an individual's name and ИИН. Kazakhstan's Law No. 94-V classifies the ИИН as personal data, so cross-border transfer requires legal review. Pipeline L keeps all pages on the bank's own server in Kazakhstan; all three questions are answered satisfactorily by design.
+Personal-data constraint (three questions from L5.1 applied to H). Where does the scan go? Each page is sent as an image to a data centre abroad, outside Kazakhstan. Who stores it and for how long? The vendor's retention policy is unknown; we have a pricing agreement, not a data-processing agreement - this must be verified. What data are at risk? 9 % of pages (≈180,675 pages/year) carry an individual's name and ИИН. Kazakhstan's Law No. 94-V classifies the ИИН as personal data, so cross-border transfer requires legal review. Pipeline L keeps all pages on the bank's own server in Kazakhstan; all three questions are answered satisfactorily by design.
 
-Safeguards (verifiable). If H were selected: (1) sign a Data Processing Agreement specifying retention ≤30 days and no secondary use — verifiable by legal audit; (2) automatically mask the ИИН before transmission for pages containing personal data — verifiable by a pre-processing log review.
+Safeguards (verifiable). If H were selected: (1) sign a Data Processing Agreement specifying retention ≤30 days and no secondary use - verifiable by legal audit; (2) automatically mask the ИИН before transmission for pages containing personal data - verifiable by a pre-processing log review.
 
-Recommendation: Pipeline L. The accuracy difference is real, and H's cross-border data flow introduces legal risk that is not yet resolved. The residual risk: L's 70 % accuracy on degraded RU/KK invoices means approximately 30 % of those documents will require manual review — staffing must account for this workload.
+Recommendation: Pipeline L. The accuracy difference is real, and H's cross-border data flow introduces legal risk that is not yet resolved. The residual risk: L's 70 % accuracy on degraded RU/KK invoices means approximately 30 % of those documents will require manual review - staffing must account for this workload.
 
 Part 3: Explain your own numbers
 Q1
@@ -70,7 +70,7 @@ Why (at most 40 words): Input tokens cost $1/M and output tokens $5/M. KK has pr
 Q2
 Number: 2.7 %
 
-Why (at most 40 words): Only EN is cut: 512 cl100k tokens → 526 e5 tokens, exceeding the 512-token limit by 14 (2.7 % of 526). RU produces 256 e5 tokens and KK 152 — both fit within 512. The cut tail is simply never encoded into the embedding.
+Why (at most 40 words): Only EN is cut: 512 cl100k tokens → 526 e5 tokens, exceeding the 512-token limit by 14 (2.7 % of 526). RU produces 256 e5 tokens and KK 152 - both fit within 512. The cut tail is simply never encoded into the embedding.
 
 Q3
 Number: 91.9 %
@@ -80,9 +80,9 @@ Why (at most 40 words): Temperature T = 0.5 sharpens the distribution by dividin
 Q4
 Number: 0
 
-Why (at most 40 words): The public leaderboard (no penalty) prefers Model X (70 vs 64 correct). This teaches a model to always guess rather than abstain — guessing costs nothing on the leaderboard but earns points, even if wrong answers are penalised equally under a fairer scoring rule.
+Why (at most 40 words): The public leaderboard (no penalty) prefers Model X (70 vs 64 correct). This teaches a model to always guess rather than abstain - guessing costs nothing on the leaderboard but earns points even if wrong answers are penalised equally under a fairer scoring rule.
 
 Q5
 Number: 26220
 
-Why (at most 40 words): Turn i bills 95 × i tokens, so total = 95 × (1 + 2 + … + 23) = 95 × 276 = 26,220. The first message is billed 23 times. Prompt caching charges repeated prefix tokens at a reduced rate, so long histories become much cheaper.
+Why (at most 40 words): Turn i bills 95 × i tokens so total = 95 × (1 + 2 + … + 23) = 95 × 276 = 26220. The first message is billed 23 times. Prompt caching charges repeated prefix tokens at a reduced rate so long histories become much cheaper.
